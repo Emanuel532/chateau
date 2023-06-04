@@ -141,7 +141,19 @@ session_start();
           <b>4</b>
         </span>
             </h4>
-            <p><?php echo $_SESSION['cos'][1] ?></p>
+<?php
+  require 'connection.php';
+  $sql="SELECT * FROM items";
+  $all_product=$conn->query($sql);
+
+  while ($row=mysqli_fetch_assoc($all_product)){
+    if(  isset($_SESSION['cos'][$row['id']])  )
+        echo '<p>' . $row['name'] . '</p>';
+
+    }
+
+  
+?>
             <hr>
             <p>Total <span class="price" style="color:black"><b>$30</b></span></p>
         </div>

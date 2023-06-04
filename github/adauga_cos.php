@@ -3,6 +3,7 @@ session_start();
 
 
 if (isset($_POST['action'])) {
-    $_SESSION['cos'][$_POST['action']]=1;
+    echo "<alert>" . $_POST['action'] .  "</alert>";
+    $_SESSION['cos'][$_POST['action']]= 1;
 
 }

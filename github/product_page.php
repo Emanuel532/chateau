@@ -95,7 +95,7 @@ $all_product=$conn->query($sql);
         <p class="product_name"><?php  echo $row["name"]?></p>
         <p class="Author"><?php echo $row["author"]?></p>
         <p class="price"><strong><?php echo $row["price"]?>€</strong></p>
-        <button class="add" id="<?php $row['id']?>">Purchase</button>
+        <button class="add" id='<?php echo $row['id']?>'>Purchase</button>
         </div>
     </div>
     <?php
@@ -127,14 +127,16 @@ $all_product=$conn->query($sql);
     })
     $(document).ready(function() {
         $('.add').click(function() {
-            var clickBtnValue = $(this).attr('id');
+            //console.log(this);
+            var clickBtnValue =this.id;
             let atr = $(this).attr("name");
+            //console.log(clickBtnValue);
             var ajaxurl = 'adauga_cos.php',
                 data =  {'action': clickBtnValue};
             $.post(ajaxurl, data, function (response) {
-                alert('aici');
+                alert(response);
             });
-            window.location.reload();
+            //window.location.reload();
         });
     });
 </script>
